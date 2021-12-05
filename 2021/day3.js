@@ -62,12 +62,10 @@ function getRating(binaryNumbers, bitCriteriaFn, bitCount) {
 
 const binaryNumbers = reader.readAsArray('day3input.txt');
 const numberCount = binaryNumbers.length;
-const bitsCount = binaryNumbers[0].length;
+const bitCount = binaryNumbers[0].length;
 
 // Reduce values into an array of the number of 1s at the index
-const onesTotals = getOnesTotals(binaryNumbers, bitsCount);
-
-console.log(onesTotals);
+const onesTotals = getOnesTotals(binaryNumbers, bitCount);
 
 // Get the most common bits at each position. Assume we can't get 500 1s (and 500 0s...)
 const mostCommonBitsArray = onesTotals
@@ -79,8 +77,11 @@ const mostCommonBits = bitsArrayToDecimal(mostCommonBitsArray);
 // Part 1.
 console.log(leastCommonBits * mostCommonBits);
 
-const oxygenRating = getRating(binaryNumbers, getMostCommonBit, bitsCount);
-const co2Rating = getRating(binaryNumbers, getLeastCommonBit, bitsCount);
+const oxygenRatingStr = getRating(binaryNumbers, getMostCommonBit, bitCount);
+const co2RatingStr = getRating(binaryNumbers, getLeastCommonBit, bitCount);
+
+const oxygenRating = bitsArrayToDecimal(oxygenRatingStr.split(''));
+const co2Rating = bitsArrayToDecimal(co2RatingStr.split(''));
 
 // Part 2.
-console.log(bitsArrayToDecimal(oxygenRating.split('')) * bitsArrayToDecimal(co2Rating.split('')));
+console.log(oxygenRating * co2Rating);
