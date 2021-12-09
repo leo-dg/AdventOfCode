@@ -11,6 +11,11 @@ function readAsArray(filename, dirPath = './inputs/') {
   return input.split('\r\n');
 }
 
+function readAsString(filename, dirPath = './inputs/') {
+  return fs.readFileSync(dirPath + filename, { encoding: 'utf-8' });
+}
+
 module.exports = {
-  readAsArray
+  readAsArray,
+  readAsString
 };
