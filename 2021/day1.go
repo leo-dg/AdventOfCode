@@ -69,6 +69,6 @@ func main() {
 	// Part 1
 	fmt.Println(getIncreases(&input))
 
-	// Part 2
+	// Part 2 :)
 	fmt.Println(getIncreases(&windowedSums))
 }
